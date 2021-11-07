@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 
 import React from "react";
@@ -8,10 +7,13 @@ import { connect, setListeners, removeListeners } from "./web3";
 import getContract from "./lottery";
 
 function App() {
-	const [isEnabled, setEnable] = useState(false);
-	const [web3Con, setweb3Con] = useState(null);
-	const [lottery, setlottery] = useState(null);
-	const [manager, setManager] = useState(null);
+	const [state, setState] = useState({
+		isEnabled: false,
+		web3Con: null,
+		lottery: null,
+		manager: null,
+		account: null,
+	});
 
 	useEffect(() => {
 		const handleAccountsChange = (accounts) => {
@@ -26,26 +28,26 @@ function App() {
 
 		const _setManager = async (lottery) => {
 			const manager = await lottery.methods.manager().call();
-			setManager(manager);
+			setState((prevState) => {
+				return { ...prevState, manager };
+			});
 		};
 
-		connect().then(({ web3, enabled, error }) => {
+		connect().then(({ accounts, web3, enabled, error }) => {
 			if (enabled) {
 				console.log("Connected to Metamask");
 				setListeners(handleAccountsChange, handleChainChange);
 
-				setweb3Con((old_web3) => {
-					return web3;
-				});
-
-				setlottery((old_lottery) => {
+				setState((prevState) => {
 					const lottery = getContract(web3);
 					_setManager(lottery);
-					return lottery;
-				});
-
-				setEnable((isEnabled) => {
-					return enabled;
+					return {
+						...prevState,
+						isEnabled: enabled,
+						web3Con: web3,
+						lottery: lottery,
+						account: accounts[0],
+					};
 				});
 			} else {
 				console.log("Error connecting to Metamask, Traceback: ");
@@ -68,14 +70,21 @@ function App() {
 
 	return (
 		<div className="App">
-			<div>
-				{isEnabled
-					? "Connected to Metamask"
-					: "Not Connected to Metamask"}
+			<div className="Account-info">
+				<div>
+					Account :{" "}
+					{state.account ? state.account : "Not Initialized"}
+				</div>
+				<div>
+					{state.isEnabled
+						? "Connected to Metamask"
+						: "Not Connected to Metamask"}
+				</div>
 			</div>
 			<h2>Lottery Contract</h2>
 			<p>
-				This contract is managed by {manager ? manager : "No Manager"}
+				This contract is managed by{" "}
+				{state.manager ? state.manager : "No Manager"}
 			</p>
 		</div>
 	);

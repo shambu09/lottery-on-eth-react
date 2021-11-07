@@ -4,14 +4,18 @@ const connect = async () => {
 	let enabled = false;
 	let error = null;
 	let web3 = null;
+	let accounts = null;
+
 	try {
-		await window.ethereum.request({ method: "eth_requestAccounts" });
+		accounts = await window.ethereum.request({
+			method: "eth_requestAccounts",
+		});
 		web3 = new Web3(window.ethereum);
 		enabled = true;
 	} catch (e) {
 		error = e;
 	}
-	return { web3, enabled, error };
+	return { accounts, web3, enabled, error };
 };
 
 const getWeb3 = () => {
