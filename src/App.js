@@ -19,6 +19,7 @@ function App() {
 		value: "",
 		message: "",
 	});
+	const [canTransact, setCanTransact] = useState(true);
 
 	useEffect(() => {
 		const handleAccountsChange = (accounts) => {
@@ -78,7 +79,7 @@ function App() {
 
 	const onSubmit = async (event) => {
 		event.preventDefault();
-
+		setCanTransact(false);
 		const account = state.account;
 
 		setState((prevState) => {
@@ -103,7 +104,7 @@ function App() {
 				return {
 					...prevState,
 					players,
-					message: "You have been entered!",
+					message: "You have entered the lottery pool!",
 					balance: balance,
 				};
 			});
@@ -111,11 +112,12 @@ function App() {
 			console.log("Error: ");
 			console.log(e);
 		}
+		setCanTransact(true);
 	};
 
 	const onPickWinner = async (event) => {
 		event.preventDefault();
-
+		setCanTransact(false);
 		const account = state.account;
 
 		setState((prevState) => {
@@ -140,19 +142,24 @@ function App() {
 			console.log("Error: ");
 			console.log(e);
 		}
+		setCanTransact(true);
 	};
 
 	return (
 		<div className="App">
 			<div className="Account-info">
 				<div>
-					Account :{" "}
-					{state.account ? state.account : "Not Initialized"}
+					<h4 id="Account-info-item1">
+						Account :{" "}
+						{state.account ? state.account : "Not Initialized"}
+					</h4>
 				</div>
 				<div>
-					{state.isEnabled
-						? "Connected to Metamask"
-						: "Not Connected to Metamask"}
+					<h4 id="Account-info-item2">
+						{state.isEnabled
+							? "Connected to Metamask"
+							: "Not Connected to Metamask"}
+					</h4>
 				</div>
 			</div>
 			<div className="Contract">
@@ -166,7 +173,7 @@ function App() {
 					<p>
 						There are currently {state.players.length} people
 						entered, competing to win{" "}
-						{Web3.utils.fromWei(state.balance, "ether")} ether !
+						{Web3.utils.fromWei(state.balance, "ether")} ether!
 					</p>
 					<hr />
 					<form onSubmit={onSubmit}>
@@ -185,7 +192,9 @@ function App() {
 								}
 							/>
 						</div>
-						<button className="btn">Enter</button>
+						<button className="btn" disabled={!canTransact}>
+							Enter
+						</button>
 					</form>
 					{state.manager &&
 					state.account &&
@@ -195,7 +204,10 @@ function App() {
 							<hr />
 							<div>
 								<h4>Time to pick a winner?</h4>
-								<button onClick={onPickWinner}>
+								<button
+									onClick={onPickWinner}
+									disabled={!canTransact}
+								>
 									Pick Winner
 								</button>
 							</div>

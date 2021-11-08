@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	color: #333;
 }
 
 .App {
@@ -39,10 +40,10 @@
 
 .btn {
 	margin-bottom: 0.5rem;
-	float: left;	
+	float: left;
 }
 
-button{
+button {
 	padding: 0.2rem 0.5rem 0.3rem 0.5rem;
 	background-color: #ede7f6;
 	border-radius: 5px;
@@ -63,6 +64,15 @@ hr {
 	clear: both;
 }
 
+#Account-info-item1 {
+	margin: 0;
+	padding: 0;
+}
+#Account-info-item2 {
+	margin: 0;
+	padding: 0;
+}
+
 @media (max-width: 599px) {
 	.Account-info {
 		display: grid;
@@ -73,7 +83,6 @@ hr {
 		align-items: center;
 		justify-content: safe;
 	}
-
 
 	.Account-info :nth-child(1) {
 		width: inherit;
@@ -96,11 +105,11 @@ hr {
 		border-radius: 1.5rem;
 	}
 
-	.Contract{
+	.Contract {
 		border-radius: 1.5rem;
 	}
 
-	.Contract-details{
+	.Contract-details {
 		border-radius: 1.5rem;
 		overflow-wrap: break-word;
 		width: inherit;
