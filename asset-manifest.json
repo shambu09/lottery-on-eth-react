@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/lottery-on-eth-react/static/css/main.f1fa5200.chunk.css",
+    "main.css": "/lottery-on-eth-react/static/css/main.0dcd3d88.chunk.css",
     "main.js": "/lottery-on-eth-react/static/js/main.0b271544.chunk.js",
     "main.js.map": "/lottery-on-eth-react/static/js/main.0b271544.chunk.js.map",
     "runtime-main.js": "/lottery-on-eth-react/static/js/runtime-main.e3651d9d.js",
@@ -8,13 +8,13 @@
     "static/js/2.eded80de.chunk.js": "/lottery-on-eth-react/static/js/2.eded80de.chunk.js",
     "static/js/2.eded80de.chunk.js.map": "/lottery-on-eth-react/static/js/2.eded80de.chunk.js.map",
     "index.html": "/lottery-on-eth-react/index.html",
-    "static/css/main.f1fa5200.chunk.css.map": "/lottery-on-eth-react/static/css/main.f1fa5200.chunk.css.map",
+    "static/css/main.0dcd3d88.chunk.css.map": "/lottery-on-eth-react/static/css/main.0dcd3d88.chunk.css.map",
     "static/js/2.eded80de.chunk.js.LICENSE.txt": "/lottery-on-eth-react/static/js/2.eded80de.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.e3651d9d.js",
     "static/js/2.eded80de.chunk.js",
-    "static/css/main.f1fa5200.chunk.css",
+    "static/css/main.0dcd3d88.chunk.css",
     "static/js/main.0b271544.chunk.js"
   ]
 }
