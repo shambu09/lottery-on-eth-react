@@ -3,13 +3,56 @@
 }
 
 .App {
+	padding: 1rem;
 	text-align: center;
+}
+
+.Contract {
+	margin-top: 1rem;
+	padding: 0.5rem;
+	background: #ede7f6;
+	border-radius: 1rem;
+}
+
+.Contract > h2 {
+	width: fit-content;
+	margin: auto;
+	background-color: #fafafa;
+	padding: 1rem;
+	border-radius: 1rem;
+}
+
+.Contract-details {
+	width: fit-content;
+	padding: 1rem;
+	margin: 1rem;
+	background-color: ivory;
+	text-align: left;
+	border-radius: 1rem;
+}
+
+.input {
+	float: left;
+	margin-right: 0.5rem;
+}
+
+.btn {
+	float: left;
+}
+
+form {
+	padding-bottom: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+hr {
+	clear: both;
 }
 
 @media (max-width: 599px) {
 	.Account-info {
 		display: grid;
-		padding: 1rem 2% 1% 2%;
+		padding: 0 0 1% 0;
 		grid-template-columns: 1fr;
 		justify-content: space-around;
 		grid-gap: 1rem;
@@ -36,7 +79,7 @@
 @media (min-width: 600px) {
 	.Account-info {
 		display: grid;
-		padding: 1rem 2% 1% 2%;
+		padding: 0 0 1% 0;
 		grid-template-columns: 1fr 1fr;
 		grid-gap: 1rem;
 		align-items: center;
