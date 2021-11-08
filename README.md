@@ -1,6 +1,6 @@
 # Lottery-on-eth React Frontend.
 [![App: Site](https://img.shields.io/badge/App-Site-orange)](https://shambu09.github.io/lottery-on-eth-react/)
-![CI/CD](https://github.com/shambu09/lottery-on-eth-react/workflows/CI/CD/badge.svg)
+![Build](https://github.com/shambu09/lottery-on-eth-react/actions/workflows/main.yml/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 <a href="https://github.com/shambu09/lottery-on-eth">
 <img src ="https://img.shields.io/badge/Contract-lottery--on--eth-blue">
