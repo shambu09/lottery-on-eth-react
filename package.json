@@ -1,7 +1,7 @@
 {
 	"name": "lottery-on-eth-react",
 	"version": "0.1.0",
-  "homepage": "https://shambu09.github.io/lottery-on-eth-react",
+  "homepage": "https://shambu09.github.io/lottery-on-eth-react/",
 	"private": true,
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.15.0",
